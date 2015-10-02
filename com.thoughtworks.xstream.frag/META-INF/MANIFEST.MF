@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Frag
+Bundle-SymbolicName: com.thoughtworks.xstream.frag
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: THOUGHTWORKS
+Fragment-Host: org.apache.servicemix.bundles.xstream;bundle-version="1.4.7"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+DynamicImport-Package: *
+
