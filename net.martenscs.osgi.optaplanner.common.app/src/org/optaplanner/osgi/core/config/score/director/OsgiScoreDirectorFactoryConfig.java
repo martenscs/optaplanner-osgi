@@ -29,6 +29,7 @@ import org.kie.api.builder.Message;
 import org.kie.api.builder.Results;
 import org.kie.api.io.KieResources;
 import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 import org.optaplanner.core.config.score.director.ScoreDirectorFactoryConfig;
 import org.optaplanner.core.config.score.trend.InitializingScoreTrendLevel;
 import org.optaplanner.core.config.solver.EnvironmentMode;
@@ -45,6 +46,7 @@ import org.optaplanner.core.impl.score.director.incremental.IncrementalScoreDire
 import org.optaplanner.core.impl.score.trend.InitializingScoreTrend;
 import org.optaplanner.osgi.common.app.OSGiSolverFactory;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.wiring.BundleWiring;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,8 +162,13 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 	}
 
 	private AbstractScoreDirectorFactory buildDroolsScoreDirectorFactory() {
-		DroolsScoreDirectorFactory scoreDirectorFactory = new DroolsScoreDirectorFactory(
-				buildKieBase());
+		DroolsScoreDirectorFactory scoreDirectorFactory = null;
+		try {
+			scoreDirectorFactory = new DroolsScoreDirectorFactory(
+					buildKieBase());
+		} catch (Exception e) {
+			System.out.println();
+		}
 		return scoreDirectorFactory;
 	}
 
@@ -188,70 +195,16 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 						+ scoreDrlList + ") and the scoreDrlFileList ("
 						+ scoreDrlFileList + ") cannot both be empty.");
 			}
-			
-			KieServices kieServices = KieServices.Factory.get();
-			KieResources kieResources = kieServices.getResources();
-			KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-			if (!ConfigUtils.isEmptyCollection(scoreDrlList)) {
-				for (String scoreDrl : scoreDrlList) {
-					if (scoreDrl == null) {
-						throw new IllegalArgumentException("The scoreDrl ("
-								+ scoreDrl + ") cannot be null.");
-					}
-					URL scoreDrlURL = getBundleContext().getBundle().getEntry(
-							scoreDrl);
-					if (scoreDrlURL == null) {
-						String errorMessage = "The scoreDrl (" + scoreDrl
-								+ ") does not exist as a classpath resource.";
-						if (scoreDrl.startsWith("/")) {
-							errorMessage += "\nAs from 6.1, a classpath resource should not start with a slash (/)."
-									+ " A scoreDrl now adheres to ClassLoader.getResource(String)."
-									+ " Remove the leading slash from the scoreDrl if you're upgrading from 6.0.";
-						}
-						throw new IllegalArgumentException(errorMessage);
-					}
-					kieFileSystem.write(kieResources.newClassPathResource(
-							scoreDrl, "UTF-8"));
-				}
-			}
-			if (!ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
-				for (File scoreDrlFile : scoreDrlFileList) {
-					if (scoreDrlFile == null) {
-						throw new IllegalArgumentException("The scoreDrlFile ("
-								+ scoreDrlFile + ") cannot be null.");
-					}
-					if (!scoreDrlFile.exists()) {
-						throw new IllegalArgumentException("The scoreDrlFile ("
-								+ scoreDrlFile + ") does not exist.");
-					}
-					kieFileSystem.write(kieResources.newFileSystemResource(
-							scoreDrlFile, "UTF-8"));
-				}
-			}
-			KieBuilder kieBuilder = kieServices.newKieBuilder(kieFileSystem);
-			kieBuilder.buildAll();
-			Results results = kieBuilder.getResults();
-			if (results.hasMessages(Message.Level.ERROR)) {
-				throw new IllegalStateException(
-						"There are errors in a score DRL:\n"
-								+ results.toString());
-			} else if (results.hasMessages(Message.Level.WARNING)) {
-				logger.warn("There are warning in a score DRL:\n"
-						+ results.toString());
-			}
-			KieContainer kieContainer = kieServices.newKieContainer(kieBuilder
-					.getKieModule().getReleaseId());
 
-			KieBaseConfiguration kieBaseConfiguration = kieServices
-					.newKieBaseConfiguration();
-			if (kieBaseConfigurationProperties != null) {
-				for (Map.Entry<String, String> entry : kieBaseConfigurationProperties
-						.entrySet()) {
-					kieBaseConfiguration.setProperty(entry.getKey(),
-							entry.getValue());
-				}
-			}
-			return kieContainer.newKieBase(kieBaseConfiguration);
+			// This the important line and available since Equinox 3.7
+			ClassLoader loader = getBundleContext().getBundle()
+					.adapt(BundleWiring.class).getClassLoader();
+
+			KieServices kieServices = KieServices.Factory.get();
+			KieContainer kcont = kieServices.newKieClasspathContainer(loader);
+		    KieBase kbase = kcont.getKieBase("vehicleRoutingScoreRulesKBase");
+
+			return kbase;
 		}
 	}
 

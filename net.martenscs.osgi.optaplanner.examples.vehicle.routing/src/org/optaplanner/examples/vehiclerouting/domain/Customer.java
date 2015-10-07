@@ -35,7 +35,7 @@ import org.optaplanner.examples.vehiclerouting.domain.timewindowed.TimeWindowedC
 public class Customer extends AbstractPersistable implements Standstill {
 
     protected Location location;
-    protected int demand;
+    protected Integer demand;
 
     // Planning variables: changes during planning, between score calculations.
     protected Standstill previousStandstill;
@@ -52,11 +52,11 @@ public class Customer extends AbstractPersistable implements Standstill {
         this.location = location;
     }
 
-    public int getDemand() {
+    public Integer getDemand() {
         return demand;
     }
 
-    public void setDemand(int demand) {
+    public void setDemand(Integer demand) {
         this.demand = demand;
     }
 

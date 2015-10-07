@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="optaplanner" sequenceNumber="43">
+<?pde version="3.8"?><target name="optaplanner" sequenceNumber="68">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.aries.feature.group" version="1.0.0.201509301715"/>
 <repository location="http://dal-subv:8080/dev/aries"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.equinox.osgi.runtime.feature.group" version="0.0.1.201409191841"/>
 <repository location="http://dal-subv:8080/dev/equinox-base"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="optaplanner.source.feature.group" version="6.2.0.Final"/>
 <unit id="optaplanner.feature.group" version="6.2.0.Final"/>
-<repository location="file:/F:/Users/repositories/git/mine/karaf-features/optaplanner-6.2.0.Final-features/target/repository/"/>
+<repository location="file:/F:/Users/repositories/git/mine/karaf-features/drools-karaf-features-6.2.0.Final-features/target/repository/"/>
+</location>
+<location path="F:\Users\repositories\runtime\drools" type="Directory"/>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="drools-module.feature.group" version="6.2.0.Final"/>
+<unit id="kie-aries-blueprint.source.feature.group" version="6.2.0.Final"/>
+<unit id="drools-common.feature.group" version="6.2.0.Final"/>
+<unit id="kie.feature.group" version="6.2.0.Final"/>
+<unit id="drools-common.source.feature.group" version="6.2.0.Final"/>
+<unit id="kie-aries-blueprint.feature.group" version="6.2.0.Final"/>
+<unit id="kie.source.feature.group" version="6.2.0.Final"/>
+<unit id="drools-module.source.feature.group" version="6.2.0.Final"/>
+<repository location="file:/F:/Users/repositories/git/mine/karaf-features/drools-karaf-features-6.2.0.Final-features/target/repository/"/>
 </location>
 </locations>
 </target>
