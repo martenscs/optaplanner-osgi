@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1444065893030
+Build-Jdk: 1.7.0_67
+Built-By: cmartens
+Bundle-Activator: org.drools.example.osgi.CanDrinkRuleOsgiActivator
+Bundle-ManifestVersion: 2
+Bundle-Name: Drools OSGi Example :: Simple rule imported from Bundle
+Bundle-SymbolicName: simple-kie-bundle
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.drools.example.model;version="1.0.0.SNAPSHOT",
+ org.drools.example.osgi;version="1.0.0.SNAPSHOT";uses:="org.osgi.framework",
+ org.drools.example.rule;version="1.0.0.SNAPSHOT";uses:="org.drools.example.model"
+Import-Package: org.drools.compiler.commons.jci.compilers;version="6.2.0.201510061028",
+ org.drools.compiler.compiler;version="[6.0,7)",
+ org.drools.compiler.rule.builder.dialect.mvel;version="[6.0,7)",
+ org.drools.core;version="[6.0,7)",
+ org.drools.core.base;version="[6.0,7)",
+ org.drools.core.base.accumulators;version="[6.0,7)",
+ org.drools.core.base.evaluators;version="[6.0,7)",
+ org.drools.core.base.extractors;version="[6.0,7)",
+ org.drools.core.command.runtime;version="[6.0,7)",
+ org.drools.core.command.runtime.rule;version="[6.0,7)",
+ org.drools.core.common;version="[6.0,7)",
+ org.drools.core.conflict;version="[6.0,7)",
+ org.drools.core.reteoo;version="[6.0,7)",
+ org.drools.core.rule.builder.dialect.asm;version="[6.0,7)",
+ org.drools.core.spi;version="[6.0,7)",
+ org.eclipse.jdt.internal.compiler,
+ org.kie.api;version="[6.0,7)",
+ org.kie.api.builder;version="[6.0,7)",
+ org.kie.api.builder.model;version="[6.0,7)",
+ org.kie.api.definition.rule;version="[6.0,7)",
+ org.kie.api.io;version="6.0.0.7",
+ org.kie.api.runtime;version="[6.0,7)",
+ org.kie.api.runtime.rule;version="[6.0,7)",
+ org.kie.internal;version="[6.0,7)",
+ org.kie.internal.io;version="[6.0,7)",
+ org.kie.internal.runtime;version="[6.0,7)",
+ org.kie.internal.runtime.manager;version="[6.0,7)",
+ org.kie.internal.runtime.manager.context;version="[6.0,7)",
+ org.osgi.framework;version="[1.7,2)",
+ org.slf4j;version="[1.5,2.0)"
+
