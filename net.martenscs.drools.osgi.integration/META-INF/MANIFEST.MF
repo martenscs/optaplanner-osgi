@@ -1,0 +1,49 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1438548415223
+Build-Jdk: 1.7.0_67
+Build-Timestamp: Sun, 2 Aug 2015 15:46:53 -0500
+Built-By: Chris
+Bundle-Description: Drools and jBPM integration with seam, spring, camel
+ , ...
+Bundle-DocURL: http://www.jboss.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Drools :: OSGi Integration
+Bundle-SymbolicName: net.martenscs.drools.osgi.integration
+Bundle-Vendor: JBoss by Red Hat
+Bundle-Version: 6.5.0.qualifier
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.drools.osgi.compiler
+Fragment-Host: org.drools.compiler;bundle-version="[6,7)"
+Implementation-Title: Drools :: OSGi Integration
+Implementation-URL: http://www.jboss.org/drools/kie-parent-with-dependen
+ cies/droolsjbpm-integration/drools-osgi/drools-osgi-integration
+Implementation-Vendor: JBoss by Red Hat
+Implementation-Vendor-Id: org.drools
+Implementation-Version: 6.4.0-SNAPSHOT
+Import-Package: org.drools.compiler.kie.builder.impl,
+ org.drools.compiler.kproject,
+ org.drools.compiler.kproject.models,
+ org.drools.core.util,
+ org.kie.api.builder,
+ org.kie.api.builder.model,
+ org.osgi.framework,
+ org.springframework.beans.factory.config;resolution:=optional,
+ org.springframework.context;resolution:=optional,
+ org.springframework.osgi.context.support;resolution:=optional
+Java-Vendor: Oracle Corporation
+Java-Version: 1.7.0_67
+Os-Arch: amd64
+Os-Name: Windows 8.1
+Os-Version: 6.3
+Private-Package: org.drools.osgi.compiler;org.drools.osgi.spring;-split-
+ package:=merge-first
+Scm-Connection: scm:git:git@github.com:droolsjbpm/droolsjbpm-integration
+ .git/drools-osgi/drools-osgi-integration
+Scm-Revision: UNKNOWN
+Scm-Url: https://github.com/droolsjbpm/droolsjbpm-integration/drools-osg
+ i/drools-osgi-integration
+Specification-Title: Drools :: OSGi Integration
+Specification-Vendor: JBoss by Red Hat
+Specification-Version: 6.4.0-SNAPSHOT
+Tool: Bnd-1.50.0
