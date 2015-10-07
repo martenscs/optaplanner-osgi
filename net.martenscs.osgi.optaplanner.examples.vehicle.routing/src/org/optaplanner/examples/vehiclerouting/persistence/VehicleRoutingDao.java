@@ -21,8 +21,8 @@ import org.optaplanner.examples.vehiclerouting.domain.VehicleRoutingSolution;
 
 public class VehicleRoutingDao extends XStreamSolutionDao {
 
-    public VehicleRoutingDao() {
-        super("vehiclerouting", VehicleRoutingSolution.class);
-    }
+	public VehicleRoutingDao() {
+		super("vehiclerouting", VehicleRoutingSolution.class);
+	}
 
 }

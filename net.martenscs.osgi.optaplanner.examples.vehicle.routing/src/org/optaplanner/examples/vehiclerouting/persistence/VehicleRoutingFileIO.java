@@ -22,26 +22,27 @@ import java.net.URL;
 import org.optaplanner.core.api.domain.solution.Solution;
 import org.optaplanner.persistence.common.api.domain.solution.SolutionFileIO;
 
+@SuppressWarnings("rawtypes")
 public class VehicleRoutingFileIO implements SolutionFileIO {
 
-    public static final String FILE_EXTENSION = "vrp";
+	public static final String FILE_EXTENSION = "vrp";
 
-    private VehicleRoutingImporter importer = new VehicleRoutingImporter();
+	private VehicleRoutingImporter importer = new VehicleRoutingImporter();
 
-    public String getInputFileExtension() {
-        return FILE_EXTENSION;
-    }
+	public String getInputFileExtension() {
+		return FILE_EXTENSION;
+	}
 
-    public String getOutputFileExtension() {
-        return FILE_EXTENSION;
-    }
+	public String getOutputFileExtension() {
+		return FILE_EXTENSION;
+	}
 
 	public Solution read(URL inputSolutionFile) {
-        return importer.readSolution(inputSolutionFile);
-    }
+		return importer.readSolution(inputSolutionFile);
+	}
 
-    public void write(Solution solution, File outputSolutionFile) {
-        throw new UnsupportedOperationException();
-    }
+	public void write(Solution solution, File outputSolutionFile) {
+		throw new UnsupportedOperationException();
+	}
 
 }

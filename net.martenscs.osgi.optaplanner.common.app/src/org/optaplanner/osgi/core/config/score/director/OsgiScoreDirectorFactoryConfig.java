@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
 
 public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 
-	private static final Logger logger = LoggerFactory
+	private static final Logger LOGGER = LoggerFactory
 			.getLogger(OsgiScoreDirectorFactoryConfig.class);
 
 	private BundleContext bundleContext;
@@ -57,6 +57,7 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 	// Builder methods
 	// ************************************************************************
 
+	@SuppressWarnings("rawtypes")
 	protected InnerScoreDirectorFactory buildScoreDirectorFactory(
 			EnvironmentMode environmentMode,
 			SolutionDescriptor solutionDescriptor,
@@ -121,6 +122,7 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 		return scoreDirectorFactory;
 	}
 
+	@SuppressWarnings("rawtypes")
 	private AbstractScoreDirectorFactory buildEasyScoreDirectorFactory() {
 		if (easyScoreCalculatorClass != null) {
 			EasyScoreCalculator easyScoreCalculator = ConfigUtils.newInstance(
@@ -187,10 +189,11 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 			// This the important line and available since Equinox 3.7
 			ClassLoader loader = getBundleContext().getBundle()
 					.adapt(BundleWiring.class).getClassLoader();
-
+			String kieBaseName = scoreDrlList.get(0);
+			LOGGER.debug("Loading KieBase:" + kieBaseName);
 			KieServices kieServices = KieServices.Factory.get();
 			KieContainer kcont = kieServices.newKieClasspathContainer(loader);
-			kieBase = kcont.getKieBase(scoreDrlList.get(0));
+			kieBase = kcont.getKieBase(kieBaseName);
 
 			return kieBase;
 		}

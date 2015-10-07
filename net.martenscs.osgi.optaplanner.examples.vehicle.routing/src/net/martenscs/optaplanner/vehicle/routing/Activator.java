@@ -1,6 +1,5 @@
 package net.martenscs.optaplanner.vehicle.routing;
 
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -27,7 +26,8 @@ public class Activator implements BundleActivator {
 		cheapTimePerformanceTest.createSolutionDao();
 		cheapTimePerformanceTest.createSolverConfigResource();
 
-		cheapTimePerformanceTest.solveModel_cvrp_32customers();;
+		cheapTimePerformanceTest.solveModel_cvrp_32customers();
+		;
 		cheapTimePerformanceTest.solveModel_cvrp_32customersFastAssert();
 		cheapTimePerformanceTest.solveModel_cvrptw_100customers_A();
 		cheapTimePerformanceTest.solveModel_cvrptw_100customers_AFastAssert();

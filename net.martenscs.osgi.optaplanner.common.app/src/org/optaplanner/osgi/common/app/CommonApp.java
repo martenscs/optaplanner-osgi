@@ -26,70 +26,70 @@ import org.slf4j.LoggerFactory;
 
 public abstract class CommonApp extends LoggingMain {
 
-    protected static final Logger logger = LoggerFactory.getLogger(CommonApp.class);
+	protected static final Logger logger = LoggerFactory
+			.getLogger(CommonApp.class);
 
-    /**
-     * Some examples are not compatible with every native LookAndFeel.
-     * For example, NurseRosteringPanel is incompatible with Mac.
-     */
-    public static void prepareSwingEnvironment() {
-   
-    }
+	/**
+	 * Some examples are not compatible with every native LookAndFeel. For
+	 * example, NurseRosteringPanel is incompatible with Mac.
+	 */
+	public static void prepareSwingEnvironment() {
 
-    protected final String name;
-    protected final String description;
-    protected final String iconResource;
+	}
 
-   
-    protected SolutionBusiness solutionBusiness;
+	protected final String name;
+	protected final String description;
+	protected final String iconResource;
 
-    protected CommonApp(String name, String description, String iconResource) {
-        this.name = name;
-        this.description = description;
-        this.iconResource = iconResource;
-    }
+	protected SolutionBusiness solutionBusiness;
 
-    public String getName() {
-        return name;
-    }
+	protected CommonApp(String name, String description, String iconResource) {
+		this.name = name;
+		this.description = description;
+		this.iconResource = iconResource;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getIconResource() {
-        return iconResource;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void init() {
-        init(true);
-    }
+	public String getIconResource() {
+		return iconResource;
+	}
 
-    public void init(boolean exitOnClose) {
-        solutionBusiness = createSolutionBusiness();
-        
-    }
+	public void init() {
+		init(true);
+	}
 
-    public SolutionBusiness createSolutionBusiness() {
-        SolutionBusiness solutionBusiness = new SolutionBusiness(this);
-        solutionBusiness.setSolutionDao(createSolutionDao());
-        solutionBusiness.setImporters(createSolutionImporters());
-        solutionBusiness.setExporter(createSolutionExporter());
-        solutionBusiness.updateDataDirs();
-        solutionBusiness.setSolver(createSolver());
-        return solutionBusiness;
-    }
+	public void init(boolean exitOnClose) {
+		solutionBusiness = createSolutionBusiness();
 
-    protected abstract Solver createSolver();
+	}
 
-    protected abstract SolutionDao createSolutionDao();
+	public SolutionBusiness createSolutionBusiness() {
+		SolutionBusiness solutionBusiness = new SolutionBusiness(this);
+		solutionBusiness.setSolutionDao(createSolutionDao());
+		solutionBusiness.setImporters(createSolutionImporters());
+		solutionBusiness.setExporter(createSolutionExporter());
+		solutionBusiness.updateDataDirs();
+		solutionBusiness.setSolver(createSolver());
+		return solutionBusiness;
+	}
 
-    protected AbstractSolutionImporter[] createSolutionImporters() {
-        return new AbstractSolutionImporter[]{};
-    }
+	protected abstract Solver createSolver();
 
-    protected AbstractSolutionExporter createSolutionExporter() {
-        return null;
-    }
+	protected abstract SolutionDao createSolutionDao();
+
+	protected AbstractSolutionImporter[] createSolutionImporters() {
+		return new AbstractSolutionImporter[] {};
+	}
+
+	protected AbstractSolutionExporter createSolutionExporter() {
+		return null;
+	}
 
 }

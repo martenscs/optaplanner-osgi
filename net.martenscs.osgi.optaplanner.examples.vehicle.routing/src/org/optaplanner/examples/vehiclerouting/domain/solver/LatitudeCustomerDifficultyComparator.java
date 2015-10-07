@@ -22,19 +22,25 @@ import java.util.Comparator;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.optaplanner.examples.vehiclerouting.domain.Customer;
 
-
 /**
  * On large datasets, the constructed solution looks like a zebra crossing.
  */
-public class LatitudeCustomerDifficultyComparator implements Comparator<Customer>, Serializable {
+public class LatitudeCustomerDifficultyComparator implements
+		Comparator<Customer>, Serializable {
 
-    public int compare(Customer a, Customer b) {
-        return new CompareToBuilder()
-                .append(a.getLocation().getLatitude(), b.getLocation().getLatitude())
-                .append(a.getLocation().getLongitude(), b.getLocation().getLongitude())
-                .append(a.getDemand(), b.getDemand())
-                .append(a.getId(), b.getId())
-                .toComparison();
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public int compare(Customer a, Customer b) {
+		return new CompareToBuilder()
+				.append(a.getLocation().getLatitude(),
+						b.getLocation().getLatitude())
+				.append(a.getLocation().getLongitude(),
+						b.getLocation().getLongitude())
+				.append(a.getDemand(), b.getDemand())
+				.append(a.getId(), b.getId()).toComparison();
+	}
 
 }

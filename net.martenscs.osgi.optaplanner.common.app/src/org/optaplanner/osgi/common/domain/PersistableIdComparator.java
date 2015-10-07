@@ -21,15 +21,17 @@ import java.util.Comparator;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
-public class PersistableIdComparator implements Comparator<AbstractPersistable>, Serializable {
+public class PersistableIdComparator implements
+		Comparator<AbstractPersistable>, Serializable {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3482663212421071202L;
 
 	public int compare(AbstractPersistable a, AbstractPersistable b) {
-        return new CompareToBuilder().append(a.getId(), b.getId()).toComparison();
-    }
+		return new CompareToBuilder().append(a.getId(), b.getId())
+				.toComparison();
+	}
 
 }

@@ -23,21 +23,22 @@ import org.optaplanner.examples.vehiclerouting.domain.location.Location;
 @PlanningEntity
 public interface Standstill {
 
-    /**
-     * @return never null
-     */
-    Location getLocation();
+	/**
+	 * @return never null
+	 */
+	Location getLocation();
 
-    /**
-     * @return sometimes null
-     */
-    Vehicle getVehicle();
+	/**
+	 * @return sometimes null
+	 */
+	Vehicle getVehicle();
 
-    /**
-     * @return sometimes null
-     */
-    @InverseRelationShadowVariable(sourceVariableName = "previousStandstill")
-    Customer getNextCustomer();
-    void setNextCustomer(Customer nextCustomer);
+	/**
+	 * @return sometimes null
+	 */
+	@InverseRelationShadowVariable(sourceVariableName = "previousStandstill")
+	Customer getNextCustomer();
+
+	void setNextCustomer(Customer nextCustomer);
 
 }

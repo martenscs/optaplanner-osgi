@@ -25,38 +25,44 @@ import org.optaplanner.examples.vehiclerouting.domain.VehicleRoutingSolution;
 /**
  * On large datasets, the constructed solution looks like a Matryoshka doll.
  */
-public class DepotDistanceCustomerDifficultyWeightFactory
-        implements SelectionSorterWeightFactory<VehicleRoutingSolution, Customer> {
+@SuppressWarnings("rawtypes")
+public class DepotDistanceCustomerDifficultyWeightFactory implements
+		SelectionSorterWeightFactory<VehicleRoutingSolution, Customer> {
 
-    public Comparable createSorterWeight(VehicleRoutingSolution vehicleRoutingSolution, Customer customer) {
-        Depot depot = vehicleRoutingSolution.getDepotList().get(0);
-        return new DepotDistanceCustomerDifficultyWeight(customer,
-                customer.getLocation().getDistanceTo(depot.getLocation())
-                        + depot.getLocation().getDistanceTo(customer.getLocation()));
-    }
+	public Comparable createSorterWeight(
+			VehicleRoutingSolution vehicleRoutingSolution, Customer customer) {
+		Depot depot = vehicleRoutingSolution.getDepotList().get(0);
+		return new DepotDistanceCustomerDifficultyWeight(customer, customer
+				.getLocation().getDistanceTo(depot.getLocation())
+				+ depot.getLocation().getDistanceTo(customer.getLocation()));
+	}
 
-    public static class DepotDistanceCustomerDifficultyWeight
-            implements Comparable<DepotDistanceCustomerDifficultyWeight> {
+	public static class DepotDistanceCustomerDifficultyWeight implements
+			Comparable<DepotDistanceCustomerDifficultyWeight> {
 
-        private final Customer customer;
-        private final long depotRoundTripDistance;
+		private final Customer customer;
+		private final long depotRoundTripDistance;
 
-        public DepotDistanceCustomerDifficultyWeight(Customer customer,
-                long depotRoundTripDistance) {
-            this.customer = customer;
-            this.depotRoundTripDistance = depotRoundTripDistance;
-        }
+		public DepotDistanceCustomerDifficultyWeight(Customer customer,
+				long depotRoundTripDistance) {
+			this.customer = customer;
+			this.depotRoundTripDistance = depotRoundTripDistance;
+		}
 
-        public int compareTo(DepotDistanceCustomerDifficultyWeight other) {
-            return new CompareToBuilder()
-                    .append(depotRoundTripDistance, other.depotRoundTripDistance) // Ascending (further from the depot are more difficult)
-                    .append(customer.getDemand(), other.customer.getDemand())
-                    .append(customer.getLocation().getLatitude(), other.customer.getLocation().getLatitude())
-                    .append(customer.getLocation().getLongitude(), other.customer.getLocation().getLongitude())
-                    .append(customer.getId(), other.customer.getId())
-                    .toComparison();
-        }
+		public int compareTo(DepotDistanceCustomerDifficultyWeight other) {
+			return new CompareToBuilder()
+					.append(depotRoundTripDistance,
+							other.depotRoundTripDistance)
+					// Ascending (further from the depot are more difficult)
+					.append(customer.getDemand(), other.customer.getDemand())
+					.append(customer.getLocation().getLatitude(),
+							other.customer.getLocation().getLatitude())
+					.append(customer.getLocation().getLongitude(),
+							other.customer.getLocation().getLongitude())
+					.append(customer.getId(), other.customer.getId())
+					.toComparison();
+		}
 
-    }
+	}
 
 }

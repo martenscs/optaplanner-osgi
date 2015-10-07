@@ -21,17 +21,17 @@ import java.io.FileFilter;
 
 public class ExtensionFileFilter implements FileFilter {
 
-    private final String extensionWithDot;
+	private final String extensionWithDot;
 
-    public ExtensionFileFilter(String extension) {
-        extensionWithDot = "." + extension;
-    }
+	public ExtensionFileFilter(String extension) {
+		extensionWithDot = "." + extension;
+	}
 
-    public boolean accept(File file) {
-        if (file.isDirectory() || file.isHidden()) {
-            return false;
-        }
-        return file.getName().endsWith(extensionWithDot);
-    }
+	public boolean accept(File file) {
+		if (file.isDirectory() || file.isHidden()) {
+			return false;
+		}
+		return file.getName().endsWith(extensionWithDot);
+	}
 
 }

@@ -59,7 +59,6 @@ public abstract class SolverPerformanceTest extends LoggingMain {
 		return solver;
 	}
 
-	@SuppressWarnings("unused")
 	private void assertBestSolution(Solver solver, String bestScoreLimitString) {
 		Solution bestSolution = solver.getBestSolution();
 		// assertNotNull(bestSolution);

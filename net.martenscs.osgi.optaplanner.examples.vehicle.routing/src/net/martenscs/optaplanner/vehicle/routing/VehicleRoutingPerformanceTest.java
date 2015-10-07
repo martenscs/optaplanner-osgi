@@ -16,13 +16,12 @@
 
 package net.martenscs.optaplanner.vehicle.routing;
 
-import java.io.File;
 import java.net.URL;
 
 import org.optaplanner.core.config.solver.EnvironmentMode;
+import org.optaplanner.examples.vehiclerouting.persistence.VehicleRoutingDao;
 import org.optaplanner.osgi.common.app.SolverPerformanceTest;
 import org.optaplanner.osgi.common.persistence.SolutionDao;
-import org.optaplanner.examples.vehiclerouting.persistence.VehicleRoutingDao;
 
 public class VehicleRoutingPerformanceTest extends SolverPerformanceTest {
 
@@ -41,37 +40,41 @@ public class VehicleRoutingPerformanceTest extends SolverPerformanceTest {
 	// ************************************************************************
 
 	public void solveModel_cvrp_32customers() {
-		File unsolvedDataFile = new File(
-				"data/vehiclerouting/unsolved/cvrp-32customers.xml");
+		// File unsolvedDataFile = new File(
+		// "data/vehiclerouting/unsolved/cvrp-32customers.xml");
 		URL url = Activator.getContext().getBundle()
 				.getEntry("data/vehiclerouting/unsolved/cvrp-32customers.xml");
 		runSpeedTest(url, "0hard/-750000soft");
 	}
 
 	public void solveModel_cvrp_32customersFastAssert() {
-		File unsolvedDataFile = new File(
-				"data/vehiclerouting/unsolved/cvrp-32customers.xml");
+		// File unsolvedDataFile = new File(
+		// "data/vehiclerouting/unsolved/cvrp-32customers.xml");
 		URL url = Activator.getContext().getBundle()
 				.getEntry("data/vehiclerouting/unsolved/cvrp-32customers.xml");
-		runSpeedTest(url, "0hard/-770000soft",
-				EnvironmentMode.FAST_ASSERT);
+		runSpeedTest(url, "0hard/-770000soft", EnvironmentMode.FAST_ASSERT);
 	}
 
 	public void solveModel_cvrptw_100customers_A() {
-		File unsolvedDataFile = new File(
-				"data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
-		URL url = Activator.getContext().getBundle()
-				.getEntry("data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
+		// File unsolvedDataFile = new File(
+		// "data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
+		URL url = Activator
+				.getContext()
+				.getBundle()
+				.getEntry(
+						"data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
 		runSpeedTest(url, "0hard/-1869903soft");
 	}
 
 	public void solveModel_cvrptw_100customers_AFastAssert() {
-		File unsolvedDataFile = new File(
-				"data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
-		URL url = Activator.getContext().getBundle()
-				.getEntry("data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
-		runSpeedTest(url, "0hard/-1877466soft",
-				EnvironmentMode.FAST_ASSERT);
+		// File unsolvedDataFile = new File(
+		// "data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
+		URL url = Activator
+				.getContext()
+				.getBundle()
+				.getEntry(
+						"data/vehiclerouting/unsolved/cvrptw-100customers-A.xml");
+		runSpeedTest(url, "0hard/-1877466soft", EnvironmentMode.FAST_ASSERT);
 	}
 
 }

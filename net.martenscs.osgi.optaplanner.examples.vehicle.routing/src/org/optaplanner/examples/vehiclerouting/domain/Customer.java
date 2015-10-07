@@ -29,100 +29,107 @@ import org.optaplanner.examples.vehiclerouting.domain.timewindowed.TimeWindowedC
 
 @PlanningEntity(difficultyWeightFactoryClass = DepotAngleCustomerDifficultyWeightFactory.class)
 @XStreamAlias("VrpCustomer")
-@XStreamInclude({
-        TimeWindowedCustomer.class
-})
+@XStreamInclude({ TimeWindowedCustomer.class })
 public class Customer extends AbstractPersistable implements Standstill {
 
-    protected Location location;
-    protected Integer demand;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected Location location;
+	protected Integer demand;
 
-    // Planning variables: changes during planning, between score calculations.
-    protected Standstill previousStandstill;
+	// Planning variables: changes during planning, between score calculations.
+	protected Standstill previousStandstill;
 
-    // Shadow variables
-    protected Customer nextCustomer;
-    protected Vehicle vehicle;
+	// Shadow variables
+	protected Customer nextCustomer;
+	protected Vehicle vehicle;
 
-    public Location getLocation() {
-        return location;
-    }
+	public Location getLocation() {
+		return location;
+	}
 
-    public void setLocation(Location location) {
-        this.location = location;
-    }
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
-    public Integer getDemand() {
-        return demand;
-    }
+	public Integer getDemand() {
+		return demand;
+	}
 
-    public void setDemand(Integer demand) {
-        this.demand = demand;
-    }
+	public void setDemand(Integer demand) {
+		this.demand = demand;
+	}
 
-    @PlanningVariable(valueRangeProviderRefs = {"vehicleRange", "customerRange"},
-            graphType = PlanningVariableGraphType.CHAINED)
-    public Standstill getPreviousStandstill() {
-        return previousStandstill;
-    }
+	@PlanningVariable(valueRangeProviderRefs = { "vehicleRange",
+			"customerRange" }, graphType = PlanningVariableGraphType.CHAINED)
+	public Standstill getPreviousStandstill() {
+		return previousStandstill;
+	}
 
-    public void setPreviousStandstill(Standstill previousStandstill) {
-        this.previousStandstill = previousStandstill;
-    }
+	public void setPreviousStandstill(Standstill previousStandstill) {
+		this.previousStandstill = previousStandstill;
+	}
 
-    public Customer getNextCustomer() {
-        return nextCustomer;
-    }
+	public Customer getNextCustomer() {
+		return nextCustomer;
+	}
 
-    public void setNextCustomer(Customer nextCustomer) {
-        this.nextCustomer = nextCustomer;
-    }
+	public void setNextCustomer(Customer nextCustomer) {
+		this.nextCustomer = nextCustomer;
+	}
 
-    @AnchorShadowVariable(sourceVariableName = "previousStandstill")
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
+	@AnchorShadowVariable(sourceVariableName = "previousStandstill")
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+	// ************************************************************************
+	// Complex methods
+	// ************************************************************************
 
-    /**
-     * @return a positive number, the distance multiplied by 1000 to avoid floating point arithmetic rounding errors
-     */
-    public long getDistanceFromPreviousStandstill() {
-        if (previousStandstill == null) {
-            return 0;
-        }
-        return getDistanceFrom(previousStandstill);
-    }
+	/**
+	 * @return a positive number, the distance multiplied by 1000 to avoid
+	 *         floating point arithmetic rounding errors
+	 */
+	public long getDistanceFromPreviousStandstill() {
+		if (previousStandstill == null) {
+			return 0;
+		}
+		return getDistanceFrom(previousStandstill);
+	}
 
-    /**
-     * @param standstill never null
-     * @return a positive number, the distance multiplied by 1000 to avoid floating point arithmetic rounding errors
-     */
-    public long getDistanceFrom(Standstill standstill) {
-        return standstill.getLocation().getDistanceTo(location);
-    }
+	/**
+	 * @param standstill
+	 *            never null
+	 * @return a positive number, the distance multiplied by 1000 to avoid
+	 *         floating point arithmetic rounding errors
+	 */
+	public long getDistanceFrom(Standstill standstill) {
+		return standstill.getLocation().getDistanceTo(location);
+	}
 
-    /**
-     * @param standstill never null
-     * @return a positive number, the distance multiplied by 1000 to avoid floating point arithmetic rounding errors
-     */
-    public long getDistanceTo(Standstill standstill) {
-        return location.getDistanceTo(standstill.getLocation());
-    }
+	/**
+	 * @param standstill
+	 *            never null
+	 * @return a positive number, the distance multiplied by 1000 to avoid
+	 *         floating point arithmetic rounding errors
+	 */
+	public long getDistanceTo(Standstill standstill) {
+		return location.getDistanceTo(standstill.getLocation());
+	}
 
-    @Override
-    public String toString() {
-        if (location.getName() == null) {
-            return super.toString();
-        }
-        return location.getName();
-    }
+	@Override
+	public String toString() {
+		if (location.getName() == null) {
+			return super.toString();
+		}
+		return location.getName();
+	}
 
 }

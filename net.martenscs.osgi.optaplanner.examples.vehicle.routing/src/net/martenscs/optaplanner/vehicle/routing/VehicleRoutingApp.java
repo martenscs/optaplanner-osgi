@@ -1,11 +1,10 @@
 package net.martenscs.optaplanner.vehicle.routing;
 
 import org.optaplanner.core.api.solver.Solver;
-import org.optaplanner.core.api.solver.SolverFactory;
-import org.optaplanner.osgi.common.app.OSGiSolverFactory;
-import org.optaplanner.osgi.common.app.CommonApp;
-import org.optaplanner.osgi.common.persistence.SolutionDao;
 import org.optaplanner.examples.vehiclerouting.persistence.VehicleRoutingDao;
+import org.optaplanner.osgi.common.app.CommonApp;
+import org.optaplanner.osgi.common.app.OSGiSolverFactory;
+import org.optaplanner.osgi.common.persistence.SolutionDao;
 
 public class VehicleRoutingApp extends CommonApp {
 

@@ -22,4 +22,9 @@ import org.optaplanner.examples.vehiclerouting.domain.VehicleRoutingSolution;
 @XStreamAlias("VrpTimeWindowedVehicleRoutingSolution")
 public class TimeWindowedVehicleRoutingSolution extends VehicleRoutingSolution {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 }
