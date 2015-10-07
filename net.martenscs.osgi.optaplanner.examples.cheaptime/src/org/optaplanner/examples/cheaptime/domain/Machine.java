@@ -26,56 +26,57 @@ import org.optaplanner.osgi.common.domain.AbstractPersistable;
 @XStreamAlias("CtMachine")
 public class Machine extends AbstractPersistable {
 
-    private int index;
+	private int index;
 
-    private long powerConsumptionMicros; // when it's up
-    private long spinUpDownCostMicros; // In micro's, sum of upCost and downCost
+	private long powerConsumptionMicros; // when it's up
+	private long spinUpDownCostMicros; // In micro's, sum of upCost and downCost
 
-    // Order is equal to resourceList so Resource.getIndex() can be used for the index
-    private List<MachineCapacity> machineCapacityList;
+	// Order is equal to resourceList so Resource.getIndex() can be used for the
+	// index
+	private List<MachineCapacity> machineCapacityList;
 
-    public int getIndex() {
-        return index;
-    }
+	public int getIndex() {
+		return index;
+	}
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
+	public void setIndex(int index) {
+		this.index = index;
+	}
 
-    public long getPowerConsumptionMicros() {
-        return powerConsumptionMicros;
-    }
+	public long getPowerConsumptionMicros() {
+		return powerConsumptionMicros;
+	}
 
-    public void setPowerConsumptionMicros(long powerConsumptionMicros) {
-        this.powerConsumptionMicros = powerConsumptionMicros;
-    }
+	public void setPowerConsumptionMicros(long powerConsumptionMicros) {
+		this.powerConsumptionMicros = powerConsumptionMicros;
+	}
 
-    public long getSpinUpDownCostMicros() {
-        return spinUpDownCostMicros;
-    }
+	public long getSpinUpDownCostMicros() {
+		return spinUpDownCostMicros;
+	}
 
-    public void setSpinUpDownCostMicros(long spinUpDownCostMicros) {
-        this.spinUpDownCostMicros = spinUpDownCostMicros;
-    }
+	public void setSpinUpDownCostMicros(long spinUpDownCostMicros) {
+		this.spinUpDownCostMicros = spinUpDownCostMicros;
+	}
 
-    public List<MachineCapacity> getMachineCapacityList() {
-        return machineCapacityList;
-    }
+	public List<MachineCapacity> getMachineCapacityList() {
+		return machineCapacityList;
+	}
 
-    public void setMachineCapacityList(List<MachineCapacity> machineCapacityList) {
-        this.machineCapacityList = machineCapacityList;
-    }
+	public void setMachineCapacityList(List<MachineCapacity> machineCapacityList) {
+		this.machineCapacityList = machineCapacityList;
+	}
 
-    public MachineCapacity getMachineCapacity(Resource resource) {
-        return machineCapacityList.get(resource.getIndex());
-    }
+	public MachineCapacity getMachineCapacity(Resource resource) {
+		return machineCapacityList.get(resource.getIndex());
+	}
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+	// ************************************************************************
+	// Complex methods
+	// ************************************************************************
 
-    public String getLabel() {
-        return "Machine " + id;
-    }
+	public String getLabel() {
+		return "Machine " + id;
+	}
 
 }

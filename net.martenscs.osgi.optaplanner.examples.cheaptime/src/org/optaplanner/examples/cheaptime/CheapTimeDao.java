@@ -5,8 +5,8 @@ import org.optaplanner.osgi.common.persistence.XStreamSolutionDao;
 
 public class CheapTimeDao extends XStreamSolutionDao {
 
-    public CheapTimeDao() {
-        super("cheaptime", CheapTimeSolution.class);
-    }
+	public CheapTimeDao() {
+		super("cheaptime", CheapTimeSolution.class);
+	}
 
 }

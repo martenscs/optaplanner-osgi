@@ -19,31 +19,32 @@ package org.optaplanner.examples.cheaptime.domain;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import org.optaplanner.osgi.common.domain.AbstractPersistable;
+
 @SuppressWarnings("serial")
 @XStreamAlias("CtPeriodPowerPrice")
 public class PeriodPowerPrice extends AbstractPersistable {
 
-    private int period;
-    private long powerPriceMicros;
+	private int period;
+	private long powerPriceMicros;
 
-    public int getPeriod() {
-        return period;
-    }
+	public int getPeriod() {
+		return period;
+	}
 
-    public void setPeriod(int period) {
-        this.period = period;
-    }
+	public void setPeriod(int period) {
+		this.period = period;
+	}
 
-    public long getPowerPriceMicros() {
-        return powerPriceMicros;
-    }
+	public long getPowerPriceMicros() {
+		return powerPriceMicros;
+	}
 
-    public void setPowerPriceMicros(long powerPriceMicros) {
-        this.powerPriceMicros = powerPriceMicros;
-    }
+	public void setPowerPriceMicros(long powerPriceMicros) {
+		this.powerPriceMicros = powerPriceMicros;
+	}
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+	// ************************************************************************
+	// Complex methods
+	// ************************************************************************
 
 }

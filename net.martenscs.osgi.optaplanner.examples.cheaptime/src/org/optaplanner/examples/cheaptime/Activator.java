@@ -19,17 +19,16 @@ public class Activator implements BundleActivator {
 	 * )
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		 Activator.context = bundleContext;
-		 CheapTimePerformanceTest cheapTimePerformanceTest = new
-		 CheapTimePerformanceTest();
-		 cheapTimePerformanceTest.setBundleContext(bundleContext);
-		 cheapTimePerformanceTest.setUp();
-		 cheapTimePerformanceTest.createSolutionDao();
-		 cheapTimePerformanceTest.createSolverConfigResource();
-		
-		 cheapTimePerformanceTest.solveInstance00();
-		 cheapTimePerformanceTest.solveInstance00FastAssert();
-	
+		Activator.context = bundleContext;
+		CheapTimePerformanceTest cheapTimePerformanceTest = new CheapTimePerformanceTest();
+		cheapTimePerformanceTest.setBundleContext(bundleContext);
+		cheapTimePerformanceTest.setUp();
+		cheapTimePerformanceTest.createSolutionDao();
+		cheapTimePerformanceTest.createSolverConfigResource();
+
+		cheapTimePerformanceTest.solveInstance00();
+		cheapTimePerformanceTest.solveInstance00FastAssert();
+
 	}
 
 	/*

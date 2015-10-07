@@ -20,8 +20,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import org.optaplanner.osgi.common.domain.AbstractPersistable;
 
-
-
 @SuppressWarnings("serial")
 @XStreamAlias("CtTaskRequirement")
 public class TaskRequirement extends AbstractPersistable {

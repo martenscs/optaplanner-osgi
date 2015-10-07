@@ -34,133 +34,137 @@ import org.optaplanner.persistence.xstream.impl.score.XStreamScoreConverter;
 
 @PlanningSolution
 @XStreamAlias("CtCheapTimeSolution")
-public class CheapTimeSolution extends AbstractPersistable implements Solution<HardMediumSoftLongScore> {
+public class CheapTimeSolution extends AbstractPersistable implements
+		Solution<HardMediumSoftLongScore> {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -243157493134492625L;
 	private int timeResolutionInMinutes;
-    private int globalPeriodRangeFrom; // Inclusive
-    private int globalPeriodRangeTo; // Exclusive
+	private int globalPeriodRangeFrom; // Inclusive
+	private int globalPeriodRangeTo; // Exclusive
 
-    private List<Resource> resourceList;
-    private List<Machine> machineList;
-    private List<MachineCapacity> machineCapacityList;
-    private List<Task> taskList;
-    private List<TaskRequirement> taskRequirementList;
-    // Order is equal to global periodRange so int period can be used for the index
-    private List<PeriodPowerPrice> periodPowerPriceList;
+	private List<Resource> resourceList;
+	private List<Machine> machineList;
+	private List<MachineCapacity> machineCapacityList;
+	private List<Task> taskList;
+	private List<TaskRequirement> taskRequirementList;
+	// Order is equal to global periodRange so int period can be used for the
+	// index
+	private List<PeriodPowerPrice> periodPowerPriceList;
 
-    private List<TaskAssignment> taskAssignmentList;
+	private List<TaskAssignment> taskAssignmentList;
 
-    @XStreamConverter(value = XStreamScoreConverter.class, types = {HardMediumSoftLongScoreDefinition.class})
-    private HardMediumSoftLongScore score;
+	@XStreamConverter(value = XStreamScoreConverter.class, types = { HardMediumSoftLongScoreDefinition.class })
+	private HardMediumSoftLongScore score;
 
-    public int getTimeResolutionInMinutes() {
-        return timeResolutionInMinutes;
-    }
+	public int getTimeResolutionInMinutes() {
+		return timeResolutionInMinutes;
+	}
 
-    public void setTimeResolutionInMinutes(int timeResolutionInMinutes) {
-        this.timeResolutionInMinutes = timeResolutionInMinutes;
-    }
+	public void setTimeResolutionInMinutes(int timeResolutionInMinutes) {
+		this.timeResolutionInMinutes = timeResolutionInMinutes;
+	}
 
-    public int getGlobalPeriodRangeFrom() {
-        return globalPeriodRangeFrom;
-    }
+	public int getGlobalPeriodRangeFrom() {
+		return globalPeriodRangeFrom;
+	}
 
-    public void setGlobalPeriodRangeFrom(int globalPeriodRangeFrom) {
-        this.globalPeriodRangeFrom = globalPeriodRangeFrom;
-    }
+	public void setGlobalPeriodRangeFrom(int globalPeriodRangeFrom) {
+		this.globalPeriodRangeFrom = globalPeriodRangeFrom;
+	}
 
-    public int getGlobalPeriodRangeTo() {
-        return globalPeriodRangeTo;
-    }
+	public int getGlobalPeriodRangeTo() {
+		return globalPeriodRangeTo;
+	}
 
-    public void setGlobalPeriodRangeTo(int globalPeriodRangeTo) {
-        this.globalPeriodRangeTo = globalPeriodRangeTo;
-    }
+	public void setGlobalPeriodRangeTo(int globalPeriodRangeTo) {
+		this.globalPeriodRangeTo = globalPeriodRangeTo;
+	}
 
-    public List<Resource> getResourceList() {
-        return resourceList;
-    }
+	public List<Resource> getResourceList() {
+		return resourceList;
+	}
 
-    @ValueRangeProvider(id = "machineRange")
-    public List<Machine> getMachineList() {
-        return machineList;
-    }
+	@ValueRangeProvider(id = "machineRange")
+	public List<Machine> getMachineList() {
+		return machineList;
+	}
 
-    public void setMachineList(List<Machine> machineList) {
-        this.machineList = machineList;
-    }
+	public void setMachineList(List<Machine> machineList) {
+		this.machineList = machineList;
+	}
 
-    public void setResourceList(List<Resource> resourceList) {
-        this.resourceList = resourceList;
-    }
+	public void setResourceList(List<Resource> resourceList) {
+		this.resourceList = resourceList;
+	}
 
-    public List<MachineCapacity> getMachineCapacityList() {
-        return machineCapacityList;
-    }
+	public List<MachineCapacity> getMachineCapacityList() {
+		return machineCapacityList;
+	}
 
-    public void setMachineCapacityList(List<MachineCapacity> machineCapacityList) {
-        this.machineCapacityList = machineCapacityList;
-    }
+	public void setMachineCapacityList(List<MachineCapacity> machineCapacityList) {
+		this.machineCapacityList = machineCapacityList;
+	}
 
-    public List<Task> getTaskList() {
-        return taskList;
-    }
+	public List<Task> getTaskList() {
+		return taskList;
+	}
 
-    public void setTaskList(List<Task> taskList) {
-        this.taskList = taskList;
-    }
+	public void setTaskList(List<Task> taskList) {
+		this.taskList = taskList;
+	}
 
-    public List<TaskRequirement> getTaskRequirementList() {
-        return taskRequirementList;
-    }
+	public List<TaskRequirement> getTaskRequirementList() {
+		return taskRequirementList;
+	}
 
-    public void setTaskRequirementList(List<TaskRequirement> taskRequirementList) {
-        this.taskRequirementList = taskRequirementList;
-    }
+	public void setTaskRequirementList(List<TaskRequirement> taskRequirementList) {
+		this.taskRequirementList = taskRequirementList;
+	}
 
-    public List<PeriodPowerPrice> getPeriodPowerPriceList() {
-        return periodPowerPriceList;
-    }
+	public List<PeriodPowerPrice> getPeriodPowerPriceList() {
+		return periodPowerPriceList;
+	}
 
-    public void setPeriodPowerPriceList(List<PeriodPowerPrice> periodPowerPriceList) {
-        this.periodPowerPriceList = periodPowerPriceList;
-    }
+	public void setPeriodPowerPriceList(
+			List<PeriodPowerPrice> periodPowerPriceList) {
+		this.periodPowerPriceList = periodPowerPriceList;
+	}
 
-    @PlanningEntityCollectionProperty
-    public List<TaskAssignment> getTaskAssignmentList() {
-        return taskAssignmentList;
-    }
+	@PlanningEntityCollectionProperty
+	public List<TaskAssignment> getTaskAssignmentList() {
+		return taskAssignmentList;
+	}
 
-    public void setTaskAssignmentList(List<TaskAssignment> taskAssignmentList) {
-        this.taskAssignmentList = taskAssignmentList;
-    }
+	public void setTaskAssignmentList(List<TaskAssignment> taskAssignmentList) {
+		this.taskAssignmentList = taskAssignmentList;
+	}
 
-    public HardMediumSoftLongScore getScore() {
-        return score;
-    }
+	public HardMediumSoftLongScore getScore() {
+		return score;
+	}
 
-    public void setScore(HardMediumSoftLongScore score) {
-        this.score = score;
-    }
+	public void setScore(HardMediumSoftLongScore score) {
+		this.score = score;
+	}
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+	// ************************************************************************
+	// Complex methods
+	// ************************************************************************
 
-    public Collection<? extends Object> getProblemFacts() {
-        List<Object> facts = new ArrayList<Object>();
-        facts.addAll(resourceList);
-        facts.addAll(machineList);
-        facts.addAll(machineCapacityList);
-        facts.addAll(taskList);
-        facts.addAll(taskRequirementList);
-        facts.addAll(periodPowerPriceList);
-        // Do not add the planning entity's (taskAssignmentList) because that will be done automatically
-        return facts;
-    }
+	public Collection<? extends Object> getProblemFacts() {
+		List<Object> facts = new ArrayList<Object>();
+		facts.addAll(resourceList);
+		facts.addAll(machineList);
+		facts.addAll(machineCapacityList);
+		facts.addAll(taskList);
+		facts.addAll(taskRequirementList);
+		facts.addAll(periodPowerPriceList);
+		// Do not add the planning entity's (taskAssignmentList) because that
+		// will be done automatically
+		return facts;
+	}
 
 }
