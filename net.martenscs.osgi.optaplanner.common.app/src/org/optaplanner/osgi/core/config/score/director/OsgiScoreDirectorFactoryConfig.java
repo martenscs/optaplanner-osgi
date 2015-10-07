@@ -190,9 +190,9 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 
 			KieServices kieServices = KieServices.Factory.get();
 			KieContainer kcont = kieServices.newKieClasspathContainer(loader);
-		    KieBase kbase = kcont.getKieBase(scoreDrlList.get(0));
+			kieBase = kcont.getKieBase(scoreDrlList.get(0));
 
-			return kbase;
+			return kieBase;
 		}
 	}
 

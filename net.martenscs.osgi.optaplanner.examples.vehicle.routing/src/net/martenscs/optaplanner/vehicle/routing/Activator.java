@@ -28,6 +28,9 @@ public class Activator implements BundleActivator {
 		cheapTimePerformanceTest.createSolverConfigResource();
 
 		cheapTimePerformanceTest.solveModel_cvrp_32customers();;
+		cheapTimePerformanceTest.solveModel_cvrp_32customersFastAssert();
+		cheapTimePerformanceTest.solveModel_cvrptw_100customers_A();
+		cheapTimePerformanceTest.solveModel_cvrptw_100customers_AFastAssert();
 	}
 
 	/*
