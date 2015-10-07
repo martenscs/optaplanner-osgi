@@ -16,20 +16,9 @@
 
 package org.optaplanner.osgi.core.config.score.director;
 
-import java.io.File;
-import java.net.URL;
-import java.util.Map;
-
 import org.kie.api.KieBase;
-import org.kie.api.KieBaseConfiguration;
 import org.kie.api.KieServices;
-import org.kie.api.builder.KieBuilder;
-import org.kie.api.builder.KieFileSystem;
-import org.kie.api.builder.Message;
-import org.kie.api.builder.Results;
-import org.kie.api.io.KieResources;
 import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
 import org.optaplanner.core.config.score.director.ScoreDirectorFactoryConfig;
 import org.optaplanner.core.config.score.trend.InitializingScoreTrendLevel;
 import org.optaplanner.core.config.solver.EnvironmentMode;
@@ -44,7 +33,6 @@ import org.optaplanner.core.impl.score.director.easy.EasyScoreDirectorFactory;
 import org.optaplanner.core.impl.score.director.incremental.IncrementalScoreCalculator;
 import org.optaplanner.core.impl.score.director.incremental.IncrementalScoreDirectorFactory;
 import org.optaplanner.core.impl.score.trend.InitializingScoreTrend;
-import org.optaplanner.osgi.common.app.OSGiSolverFactory;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.wiring.BundleWiring;
 import org.slf4j.Logger;
@@ -202,7 +190,7 @@ public class OsgiScoreDirectorFactoryConfig extends ScoreDirectorFactoryConfig {
 
 			KieServices kieServices = KieServices.Factory.get();
 			KieContainer kcont = kieServices.newKieClasspathContainer(loader);
-		    KieBase kbase = kcont.getKieBase("vehicleRoutingScoreRulesKBase");
+		    KieBase kbase = kcont.getKieBase(scoreDrlList.get(0));
 
 			return kbase;
 		}
