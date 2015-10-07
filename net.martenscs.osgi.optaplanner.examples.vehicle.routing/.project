@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>net.martenscs.osgi.optaplanner.examples.vehicle.routing</name>
+	<name>net.martenscs.optaplanner.vehicle.routing</name>
 	<comment></comment>
 	<projects>
 	</projects>
