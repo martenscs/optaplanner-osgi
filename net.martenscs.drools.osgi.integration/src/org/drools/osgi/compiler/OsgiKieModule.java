@@ -138,6 +138,7 @@ public class OsgiKieModule extends AbstractKieModule {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static String getPomProperties(Bundle bundle) {
 		Enumeration<URL> e = bundle.findEntries("META-INF/maven",
 				"pom.properties", true);

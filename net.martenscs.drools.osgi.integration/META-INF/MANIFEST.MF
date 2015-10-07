@@ -27,10 +27,7 @@ Import-Package: org.drools.compiler.kie.builder.impl,
  org.drools.core.util,
  org.kie.api.builder,
  org.kie.api.builder.model,
- org.osgi.framework,
- org.springframework.beans.factory.config;resolution:=optional,
- org.springframework.context;resolution:=optional,
- org.springframework.osgi.context.support;resolution:=optional
+ org.osgi.framework
 Java-Vendor: Oracle Corporation
 Java-Version: 1.7.0_67
 Os-Arch: amd64
@@ -47,3 +44,4 @@ Specification-Title: Drools :: OSGi Integration
 Specification-Vendor: JBoss by Red Hat
 Specification-Version: 6.4.0-SNAPSHOT
 Tool: Bnd-1.50.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
