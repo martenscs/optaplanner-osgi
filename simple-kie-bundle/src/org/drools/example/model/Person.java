@@ -2,102 +2,96 @@ package org.drools.example.model;
 
 public class Person {
 
-    private String name;
-    private String likes;
-    private String status;
-    private int age;
-    private boolean canDrink = false;
-    private boolean alive;
-    private char sex;
-    private boolean happy;
+	private String name;
+	private String likes;
+	private String status;
+	private int age;
+	private boolean canDrink = false;
+	private boolean alive;
+	private char sex;
+	private boolean happy;
 
-    public Person() {
+	public Person() {
 
-    }
-    public Person(final String name) {
-        this( name,
-                "",
-                0 );
-    }
+	}
 
-    public Person(final String name,
-                  final String likes) {
-        this( name,
-                likes,
-                0 );
-    }
+	public Person(final String name) {
+		this(name, "", 0);
+	}
 
-    public Person(final String name,
-                  final String likes,
-                  final int age) {
-        this.name = name;
-        this.likes = likes;
-        this.age = age;
-    }
+	public Person(final String name, final String likes) {
+		this(name, likes, 0);
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Person(final String name, final String likes, final int age) {
+		this.name = name;
+		this.likes = likes;
+		this.age = age;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+	public int getAge() {
+		return age;
+	}
 
-    public boolean isCanDrink() {
-        return canDrink;
-    }
+	public void setAge(int age) {
+		this.age = age;
+	}
 
-    public void setCanDrink(boolean canDrink) {
-        this.canDrink = canDrink;
-    }
+	public boolean isCanDrink() {
+		return canDrink;
+	}
 
-    public String getStatus() {
-        return this.status;
-    }
+	public void setCanDrink(boolean canDrink) {
+		this.canDrink = canDrink;
+	}
 
-    public void setStatus(final String status) {
-        this.status = status;
-    }
+	public String getStatus() {
+		return this.status;
+	}
 
-    public String getLikes() {
-        return this.likes;
-    }
+	public void setStatus(final String status) {
+		this.status = status;
+	}
 
-    public boolean isAlive() {
-        return this.alive;
-    }
+	public String getLikes() {
+		return this.likes;
+	}
 
-    public void setAlive(final boolean alive) {
-        this.alive = alive;
-    }
+	public boolean isAlive() {
+		return this.alive;
+	}
 
-    public char getSex() {
-        return this.sex;
-    }
+	public void setAlive(final boolean alive) {
+		this.alive = alive;
+	}
 
-    public void setSex(final char sex) {
-        this.sex = sex;
-    }
+	public char getSex() {
+		return this.sex;
+	}
 
-    @Override
-    public String toString() {
-        return "Person{" + "name='" + name + '\'' + ", age=" + age
-                + ", canDrink=" + canDrink + '}';
-    }
+	public void setSex(final char sex) {
+		this.sex = sex;
+	}
 
-    public boolean isHappy() {
-        return happy;
-    }
+	@Override
+	public String toString() {
+		return "Person{" + "name='" + name + '\'' + ", age=" + age
+				+ ", canDrink=" + canDrink + '}';
+	}
 
-    public void setHappy(boolean happy) {
-        this.happy = happy;
-    }
+	public boolean isHappy() {
+		return happy;
+	}
+
+	public void setHappy(boolean happy) {
+		this.happy = happy;
+	}
 }
