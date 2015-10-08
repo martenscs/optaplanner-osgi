@@ -23,6 +23,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.martenscs.optaplanner.vehicle.routing.Activator;
+
 import org.apache.commons.io.FilenameUtils;
 import org.optaplanner.core.api.domain.solution.Solution;
 import org.optaplanner.osgi.common.persistence.AbstractTxtSolutionImporter;
@@ -63,7 +65,7 @@ public class VehicleRoutingImporter extends AbstractTxtSolutionImporter {
 	}
 
 	public VehicleRoutingImporter() {
-		super(new VehicleRoutingDao());
+		super(new VehicleRoutingDao(Activator.getContext()));
 	}
 
 	public VehicleRoutingImporter(boolean withoutDao) {

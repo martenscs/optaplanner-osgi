@@ -32,7 +32,7 @@ public class VehicleRoutingPerformanceTest extends SolverPerformanceTest {
 
 	@Override
 	protected SolutionDao createSolutionDao() {
-		return new VehicleRoutingDao();
+		return new VehicleRoutingDao(Activator.getContext());
 	}
 
 	// ************************************************************************

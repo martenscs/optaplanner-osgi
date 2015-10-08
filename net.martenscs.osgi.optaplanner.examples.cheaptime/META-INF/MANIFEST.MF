@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: One
+Bundle-Name: Cheaptime Example
 Bundle-SymbolicName: net.martenscs.osgi.optaplanner.examples.cheaptime
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.optaplanner.examples.cheaptime.Activator
@@ -74,4 +74,5 @@ Export-Package: org.optaplanner.examples.cheaptime,
  org.optaplanner.examples.cheaptime.domain.solver,
  org.optaplanner.examples.cheaptime.solver,
  org.optaplanner.examples.cheaptime.solver.score
+Bundle-Vendor: Martenscs
 

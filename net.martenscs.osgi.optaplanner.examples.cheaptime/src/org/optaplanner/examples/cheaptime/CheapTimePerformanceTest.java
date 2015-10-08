@@ -31,7 +31,7 @@ public class CheapTimePerformanceTest extends SolverPerformanceTest {
 
 	@Override
 	protected SolutionDao createSolutionDao() {
-		return new CheapTimeDao();
+		return new CheapTimeDao(Activator.getContext());
 	}
 
 	// ************************************************************************

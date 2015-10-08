@@ -105,13 +105,10 @@ public class OsgiKieModule extends AbstractKieModule {
 			StringBuffer sb = new StringBuffer();
 			sb.append("version=");
 
-			String pomProperties = bundle.getVersion().toString();
-			sb.append(pomProperties + "\n");
-
-			String groupId = bundle.getSymbolicName();
-			sb.append("groupId=");
-			sb.append(groupId + "\n");
+			String version = bundle.getVersion().toString();
+			sb.append(version + "\n");
 			String artifactId = bundle.getSymbolicName();
+			sb.append("groupId=BUNDLE\n");
 			sb.append("artifactId=");
 			sb.append(artifactId + "\n");
 			// String version = props.getProperty("version");

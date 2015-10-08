@@ -35,6 +35,7 @@ import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.config.solver.SolverConfig;
 import org.optaplanner.core.config.score.director.ScoreDirectorFactoryConfig;
 import org.optaplanner.osgi.core.config.score.director.OsgiScoreDirectorFactoryConfig;
+import org.apache.aries.util.AriesFrameworkUtil;
 
 //import org.optaplanner.examples.config.score.director.OsgiScoreDirectorFactoryConfig;
 
@@ -52,8 +53,19 @@ public class XStreamXmlSolverFactory extends OSGiSolverFactory {
 	 * 
 	 * @return never null.
 	 */
+
 	public static XStream buildXStream() {
 		XStream xStream = new XStream();
+
+		ClassLoader cl = AriesFrameworkUtil.getClassLoader(getContext()
+				.getBundle());
+		// xStream.setClassLoader(cl);
+
+		ClassLoader[] delegates = new ClassLoader[] {
+				SolverConfig.class.getClassLoader(), cl,
+				XStream.class.getClassLoader() };
+		cl = new DelegationClassloader(delegates);
+		xStream.setClassLoader(cl);
 		xStream.setMode(XStream.ID_REFERENCES);
 		xStream.aliasSystemAttribute("xStreamId", "id");
 		xStream.aliasSystemAttribute("xStreamRef", "reference");

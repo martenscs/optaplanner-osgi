@@ -18,11 +18,12 @@ package org.optaplanner.examples.vehiclerouting.persistence;
 
 import org.optaplanner.osgi.common.persistence.XStreamSolutionDao;
 import org.optaplanner.examples.vehiclerouting.domain.VehicleRoutingSolution;
+import org.osgi.framework.BundleContext;
 
 public class VehicleRoutingDao extends XStreamSolutionDao {
 
-	public VehicleRoutingDao() {
-		super("vehiclerouting", VehicleRoutingSolution.class);
+	public VehicleRoutingDao(BundleContext bundleContext) {
+		super(bundleContext, "vehiclerouting", VehicleRoutingSolution.class);
 	}
 
 }

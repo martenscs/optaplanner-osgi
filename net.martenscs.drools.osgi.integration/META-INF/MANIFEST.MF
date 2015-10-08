@@ -11,7 +11,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Drools :: OSGi Integration
 Bundle-SymbolicName: net.martenscs.drools.osgi.integration
 Bundle-Vendor: JBoss by Red Hat
-Bundle-Version: 6.5.0.qualifier
+Bundle-Version: 6.2.0.qualifier
 Created-By: Apache Maven Bundle Plugin
 Export-Package: org.drools.osgi.compiler
 Fragment-Host: org.drools.compiler;bundle-version="[6,7)"

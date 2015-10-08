@@ -26,9 +26,13 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.URL;
 
+import org.apache.aries.util.AriesFrameworkUtil;
 import org.apache.commons.io.IOUtils;
 import org.optaplanner.core.api.domain.solution.Solution;
+import org.optaplanner.core.config.solver.SolverConfig;
+import org.optaplanner.osgi.common.app.DelegationClassloader;
 import org.optaplanner.persistence.common.api.domain.solution.SolutionFileIO;
+import org.osgi.framework.BundleContext;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.XStreamException;
@@ -36,17 +40,35 @@ import com.thoughtworks.xstream.XStreamException;
 public class XStreamSolutionFileIO implements SolutionFileIO {
 
 	public static final String FILE_EXTENSION = "xml";
+	private BundleContext context;
+
+	public BundleContext getBundleContext() {
+		return context;
+	}
+
+	public void setBundleContext(BundleContext bundleContext) {
+		this.context = bundleContext;
+	}
 
 	private XStream xStream;
 
-	public XStreamSolutionFileIO() {
+	public XStreamSolutionFileIO(BundleContext context) {
 		xStream = new XStream();
+		ClassLoader cl = AriesFrameworkUtil.getClassLoader(context.getBundle());
+		// xStream.setClassLoader(cl);
+
+		ClassLoader[] delegates = new ClassLoader[] {
+				SolverConfig.class.getClassLoader(), cl,
+				XStream.class.getClassLoader() };
+		cl = new DelegationClassloader(delegates);
+		xStream.setClassLoader(cl);
 		xStream.setMode(XStream.ID_REFERENCES);
 	}
 
 	@SuppressWarnings("rawtypes")
-	public XStreamSolutionFileIO(Class... xStreamAnnotatedClasses) {
-		this();
+	public XStreamSolutionFileIO(BundleContext bundleContext,
+			Class... xStreamAnnotatedClasses) {
+		this(bundleContext);
 		xStream.processAnnotations(xStreamAnnotatedClasses);
 	}
 

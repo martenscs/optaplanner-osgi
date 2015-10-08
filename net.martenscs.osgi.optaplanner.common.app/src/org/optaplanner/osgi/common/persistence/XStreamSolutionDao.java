@@ -5,15 +5,18 @@ import java.net.URL;
 
 import org.optaplanner.core.api.domain.solution.Solution;
 import org.optaplanner.persistence.xstream.impl.domain.solution.XStreamSolutionFileIO;
+import org.osgi.framework.BundleContext;
 
 @SuppressWarnings("rawtypes")
 public abstract class XStreamSolutionDao extends AbstractSolutionDao {
 
 	protected XStreamSolutionFileIO xStreamSolutionFileIO;
 
-	public XStreamSolutionDao(String dirName, Class... xStreamAnnotations) {
+	public XStreamSolutionDao(BundleContext bundleContext, String dirName,
+			Class... xStreamAnnotations) {
 		super(dirName);
-		xStreamSolutionFileIO = new XStreamSolutionFileIO(xStreamAnnotations);
+		xStreamSolutionFileIO = new XStreamSolutionFileIO(bundleContext,
+				xStreamAnnotations);
 	}
 
 	public String getFileExtension() {

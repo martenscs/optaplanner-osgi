@@ -24,7 +24,7 @@ public class VehicleRoutingApp extends CommonApp {
 
 	@Override
 	protected SolutionDao createSolutionDao() {
-		return new VehicleRoutingDao();
+		return new VehicleRoutingDao(Activator.getContext());
 	}
 
 }

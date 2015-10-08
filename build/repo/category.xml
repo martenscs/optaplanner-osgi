@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.optaplanner.osgi.core_6.2.0.qualifier.jar" id="org.optaplanner.osgi.core" version="6.2.0.qualifier">
+      <category name="Optaplanner OSGi"/>
+   </feature>
+   <feature url="features/net.martenscs.osgi.optaplanner.examples_1.0.0.qualifier.jar" id="net.martenscs.osgi.optaplanner.examples" version="1.0.0.qualifier">
+      <category name="Optaplanner OSGi"/>
+   </feature>
+   <category-def name="Optaplanner OSGi" label="Optaplanner OSGi"/>
+</site>

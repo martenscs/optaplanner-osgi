@@ -47,3 +47,4 @@ Export-Package: net.martenscs.optaplanner.vehicle.routing,
  org.optaplanner.examples.vehiclerouting.domain.timewindowed,
  org.optaplanner.examples.vehiclerouting.domain.timewindowed.solver,
  org.optaplanner.examples.vehiclerouting.persistence
+Bundle-Vendor: Martenscs

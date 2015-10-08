@@ -41,11 +41,6 @@
 			<url>http://p2.martenscs.net/optaplanner/6.2.0.FINAL</url>
 			<layout>p2</layout>
 		</repository>
-		<repository>
-			<id>drools</id>
-			<url>http://p2.martenscs.net/drools/6.2.0.FINAL</url>
-			<layout>p2</layout>
-		</repository>
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -181,12 +176,14 @@
 		</pluginManagement>
 	</build>
 	<modules>
-		<module>../net.martenscs.optaplanner.one</module>
-		<module>../org.optaplanner.osgi.common.app</module>
-		<module>../com.thoughtworks.xstream.frag</module>
-		<module>../org.drools.osgi.integration</module>
-		<module>../net.martenscs.kei.blueprint</module>
-		<module>../net.martenscs.kie.aries.blueprint</module>
-		<module>../net.martenscs.optaplanner.vehicle.routing</module>
+		<module>../net.martenscs.osgi.optaplanner.common.app</module>
+		<module>../net.martenscs.drools.osgi.integration</module>
+		<module>../net.martenscs.osgi.optaplanner.examples.cheaptime</module>
+		<module>../net.martenscs.osgi.optaplanner.examples.vehicle.routing</module>
+		<module>../simple-kie-bundle</module>
+		<module>../net.martenscs.osgi.optaplanner.examples</module>
+		<module>../org.optaplanner.osgi.core</module>
+		<module>repo</module>
 	</modules>
+	<name>JBOSS Optaplanner Tycho Build</name>
 </project>
