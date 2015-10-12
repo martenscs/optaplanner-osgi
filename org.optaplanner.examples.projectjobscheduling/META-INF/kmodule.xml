@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+	<kbase name="projectJobSchedulingScoreRulesKBase" packages="org.optaplanner.examples.projectjobscheduling.solver"
+		default="true">
+		<ksession name="projectJobSchedulingScoreRulesKSession"
+			default="true" />
+	</kbase>
+
+</kmodule>

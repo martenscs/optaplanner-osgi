@@ -5,6 +5,27 @@
 	<artifactId>optaplanner-build</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<modules>
+		<module>../org.drools.example.cheese</module>
+		<module>../simple-kie-bundle</module>
+		<module>../com.javacodegeeks.drools</module>
+		<module>../org.optaplanner.osgi.examples.common.app</module>
+		<module>../org.optaplanner.examples.cheaptime</module>
+		<module>../org.optaplanner.examples.cloudbalancing</module>
+		<module>../org.optaplanner.examples.curriculumcourse</module>
+		<module>../org.optaplanner.examples.dinnerparty</module>
+		<module>../org.optaplanner.examples.examination</module>
+		<module>../org.optaplanner.examples.machinereassignment</module>
+		<module>../org.optaplanner.examples.pas</module>
+		<module>../org.optaplanner.examples.projectjobscheduling</module>
+		<module>../org.optaplanner.examples.tennis</module>
+		<module>../org.optaplanner.examples.travelingtournament</module>
+		<module>../org.optaplanner.examples.tsp</module>
+		<module>../org.optaplanner.examples.vehicle.routing</module>
+		<module>../net.martenscs.osgi.optaplanner.examples</module>
+		<module>../org.optaplanner.osgi.core</module>
+		<module>repo</module>
+	</modules>
 	<properties>
 		<tycho-version>0.19.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -121,8 +142,7 @@
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.3</version>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -175,15 +195,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<modules>
-		<module>../net.martenscs.osgi.optaplanner.common.app</module>
-		<module>../net.martenscs.drools.osgi.integration</module>
-		<module>../net.martenscs.osgi.optaplanner.examples.cheaptime</module>
-		<module>../net.martenscs.osgi.optaplanner.examples.vehicle.routing</module>
-		<module>../simple-kie-bundle</module>
-		<module>../net.martenscs.osgi.optaplanner.examples</module>
-		<module>../org.optaplanner.osgi.core</module>
-		<module>repo</module>
-	</modules>
+
 	<name>JBOSS Optaplanner Tycho Build</name>
+
 </project>

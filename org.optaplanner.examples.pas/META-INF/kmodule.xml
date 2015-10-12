@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+	<kbase name="patientAdmissionScheduleScoreRulesKBase" packages="org.optaplanner.examples.pas.solver"
+		default="true">
+		<ksession name="patientAdmissionScheduleScoreRulesKSession"
+			default="true" />
+	</kbase>
+
+</kmodule>

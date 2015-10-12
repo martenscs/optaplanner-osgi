@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+	<kbase name="tennisScoreRulesKBase" packages="org.optaplanner.examples.tennis.solver"
+		default="true">
+		<ksession name="tennisScoreRulesKSession"
+			default="true" />
+	</kbase>
+
+</kmodule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+	<kbase name="tspScoreRulesKBase" packages="org.optaplanner.examples.tsp.solver" default="true">
+		<ksession name="tspScoreRulesRulesKSession" default="true" />
+	</kbase>
+
+</kmodule>
